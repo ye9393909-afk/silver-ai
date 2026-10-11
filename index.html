@@ -1,0 +1,98 @@
+
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Silver — AI Website Builder</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0c0b14;
+      color: white;
+    }
+    header {
+      padding: 24px 8%;
+      border-bottom: 1px solid #292538;
+      font-size: 25px;
+      font-weight: bold;
+    }
+    main {
+      max-width: 850px;
+      margin: 90px auto;
+      padding: 24px;
+      text-align: center;
+    }
+    h1 { font-size: clamp(38px, 7vw, 68px); }
+    h1 span { color: #a78bfa; }
+    p { color: #b9b4c9; line-height: 1.7; }
+    textarea {
+      width: 100%;
+      height: 130px;
+      margin-top: 25px;
+      padding: 18px;
+      border: 1px solid #393249;
+      border-radius: 14px;
+      background: #171522;
+      color: white;
+      font-size: 16px;
+    }
+    button {
+      margin-top: 14px;
+      padding: 15px 24px;
+      border: 0;
+      border-radius: 10px;
+      background: #8b5cf6;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    #result {
+      margin-top: 30px;
+      padding: 25px;
+      border: 1px solid #393249;
+      border-radius: 14px;
+      overflow-wrap: anywhere;
+    }
+  </style>
+</head>
+<body>
+  <header>✦ Silver</header>
+  <main>
+    <h1>Fikrini yaz.<br><span>Web siteni tasarla.</span></h1>
+    <p>Nasıl bir web sitesi istediğini anlat. Silver ile ilk adımını at.</p>
+
+    <textarea id="idea" placeholder="Örneğin: Modern bir restoran web sitesi oluştur..."></textarea>
+    <br>
+    <button onclick="createSite()">Taslağımı oluştur</button>
+
+    <div id="result">
+      <h2>Web siten burada görünecek</h2>
+      <p>Fikrini yaz ve başla.</p>
+    </div>
+  </main>
+
+  <script>
+    function createSite() {
+      const idea = document.getElementById("idea").value.trim();
+      const result = document.getElementById("result");
+
+      if (!idea) {
+        result.innerHTML = "<p>Lütfen önce web sitesi fikrini yaz.</p>";
+        return;
+      }
+
+      const title = document.createElement("h2");
+      title.textContent = idea;
+
+      const description = document.createElement("p");
+      description.textContent =
+        "Bu, Silver platformunun ilk örnek taslağıdır.";
+
+      result.replaceChildren(title, description);
+    }
+  </script>
+</body>
+</html>
